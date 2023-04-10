@@ -1,0 +1,15 @@
+.list {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(76, 76, 205);
+  padding: 12px 15px;
+  margin: 0%;
+}
+.list > li {
+  list-style: none;
+}
+.list > li > a {
+  text-decoration: none;
+  color: white;
+}
