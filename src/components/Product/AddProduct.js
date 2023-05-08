@@ -20,6 +20,7 @@ const AddProduct = () => {
     } else {
       sendProduct(userId);
     }
+   
   };
   const sendProduct = async (userId) => {
     const response = await fetch("http://localhost:2000/add-product", {
@@ -35,6 +36,7 @@ const AddProduct = () => {
       navigate("/products");
     }
   };
+ 
   return (
     <div>
       <h1>Product Details</h1>
