@@ -39,11 +39,11 @@ const SignIn = () => {
       },
     });
     const result = await response.json();
-
-    if (!result.success) {
-      alert("Please Enter valid Email & Password");
+    console.log(result);
+    if (!response.ok) {
+      alert(result.message);
     }
-    if (result.user.token) {
+    if (response.ok) {
       localStorage.setItem("user", JSON.stringify(result.user));
       localStorage.setItem("token", JSON.stringify(result.user.token));
       navigate("/products");

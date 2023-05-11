@@ -36,7 +36,7 @@ const SignUp = () => {
     }
   };
   const sendData = async () => {
-    let result = await FetchData({
+    let response = await FetchData({
       route: "http://localhost:2000/signup",
       method: "post",
       body: {
@@ -45,13 +45,15 @@ const SignUp = () => {
         password,
       },
     });
-    result = await result.json();
+    
+    let result = await response.json();
 
-   console.log(result)
-    if (result.user_data.token) {
+    if (response.ok) {
       localStorage.setItem("user", JSON.stringify(result.user_data));
       localStorage.setItem("token", JSON.stringify(result.user_data.token));
       navigate("/");
+    } else {
+      alert(result.message);
     }
   };
   return (
